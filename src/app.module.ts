@@ -6,17 +6,23 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { UserModule } from './user/user.module';
 import { PostModule } from './post/post.module';
+import { ModelsModule } from './models/models.module';
+import { PromptsModule } from './prompts/prompts.module';
+import { ChainsModule } from './chains/chains.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-    PrismaModule,
-    PostModule,
-    UserModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        ConfigModule.forRoot({
+            isGlobal: true,
+        }),
+        PrismaModule,
+        PostModule,
+        UserModule,
+        ModelsModule,
+        PromptsModule,
+        ChainsModule,
+    ],
+    controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}

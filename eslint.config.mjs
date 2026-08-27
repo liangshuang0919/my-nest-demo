@@ -29,7 +29,16 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn',
-      "prettier/prettier": ["error", { endOfLine: "auto" }],
+      // 未使用变量/导入只警告，不阻断开发中的临时代码
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'warn',
+      'prettier/prettier': [
+        'error',
+        {
+          endOfLine: 'auto',
+          printWidth: 120,
+        },
+      ],
     },
   },
 );
