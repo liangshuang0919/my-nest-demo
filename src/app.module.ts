@@ -12,6 +12,7 @@ import { ChainsModule } from './chains/chains.module';
 import { AgentsModule } from './agents/agents.module';
 import { MemoryModule } from './memory/memory.module';
 import { RagModule } from './rag/rag.module';
+import { FunctionCallingModule } from './function-calling/function-calling.module';
 
 @Module({
     imports: [
@@ -27,6 +28,7 @@ import { RagModule } from './rag/rag.module';
         AgentsModule,
         MemoryModule,
         RagModule,
+        FunctionCallingModule,
     ],
     controllers: [AppController],
     providers: [AppService],

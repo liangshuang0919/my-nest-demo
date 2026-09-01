@@ -79,6 +79,7 @@ export class RagService {
             message: `加载 ${documents.length} 篇文档，共 ${allDocs.length} 个块`,
         };
     }
+
     // 检索向量库（纯向量查询，不通过大模型，直接检索结果）
     async EmbedSearch({ query, topK = 3 }: SearchRagDto) {
         if (!this.vectorStore) {
