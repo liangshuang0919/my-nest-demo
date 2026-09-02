@@ -5,17 +5,17 @@
 import { defineConfig } from 'prisma/config';
 
 export default defineConfig({
-  // 指定 schema 文件位置
-  schema: 'prisma/schema.prisma',
+    // 指定 schema 文件位置
+    schema: 'prisma/schema.prisma',
 
-  // 迁移文件存放目录
-  migrations: {
-    path: 'prisma/migrations',
-  },
+    // 迁移文件存放目录
+    migrations: {
+        path: 'prisma/migrations',
+    },
 
-  // 数据库连接配置
-  // URL 从 .env 文件读取，不要硬编码在这里
-  datasource: {
-    url: process.env.DATABASE_URL as string,
-  },
+    // 数据库连接配置
+    // URL 从 .env 文件读取，不要硬编码在这里
+    datasource: {
+        url: process.env.DATABASE_URL as string,
+    },
 });
