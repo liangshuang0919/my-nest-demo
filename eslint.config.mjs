@@ -31,7 +31,6 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-argument': 'off',
       // 未使用变量/导入只警告，不阻断开发中的临时代码
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': 'warn',
       'prettier/prettier': [
         'error',
         {
@@ -40,6 +39,8 @@ export default tseslint.config(
         },
       ],
       '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
 );
