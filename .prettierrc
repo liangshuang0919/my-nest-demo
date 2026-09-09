@@ -1,0 +1,16 @@
+{
+    "singleQuote": true,
+    "tabWidth": 4,
+    "useTabs": false,
+    "printWidth": 200,
+    "semi": true,
+    "trailingComma": "none",
+    "overrides": [
+        {
+            "files": [".prettierrc", ".prettierrc.*", "package.json"],
+            "options": {
+                "tabWidth": 4
+            }
+        }
+    ]
+}
