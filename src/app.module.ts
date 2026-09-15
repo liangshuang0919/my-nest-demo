@@ -14,6 +14,7 @@ import { MemoryModule } from './memory/memory.module';
 import { RagModule } from './rag/rag.module';
 import { FunctionCallingModule } from './function-calling/function-calling.module';
 import { RagDbModule } from './rag-db/rag-db.module';
+import { LanggraphModule } from './langgraph/langgraph.module';
 
 @Module({
     imports: [
@@ -31,6 +32,7 @@ import { RagDbModule } from './rag-db/rag-db.module';
         RagModule,
         FunctionCallingModule,
         RagDbModule,
+        LanggraphModule,
     ],
     controllers: [AppController],
     providers: [AppService],
