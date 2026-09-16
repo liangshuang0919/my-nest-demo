@@ -1,11 +1,15 @@
 import { Controller, Get, Post, Body, HttpCode, Param } from '@nestjs/common';
 
+import { ArticleService } from './article.service';
 import { LanggraphService } from './langgraph.service';
-import { SimpleChatDto, MemoryChatDto } from './dto/langgraph.dto';
+import { SimpleChatDto, MemoryChatDto, ArticleDto } from './dto/langgraph.dto';
 
 @Controller('langgraph')
 export class LanggraphController {
-    constructor(private readonly langgraphService: LanggraphService) {}
+    constructor(
+        private readonly langgraphService: LanggraphService,
+        private readonly articleService: ArticleService,
+    ) {}
 
     // 工作流一：简单回答（无记忆）
     @Post('simple-chat')
@@ -26,5 +30,12 @@ export class LanggraphController {
     @HttpCode(200)
     async getHistory(@Param('threadId') threadId: string) {
         return await this.langgraphService.getHistory(threadId);
+    }
+
+    // 工作流四：文章摘要流水线
+    @Post('article')
+    @HttpCode(200)
+    async processArticle(@Body() body: ArticleDto) {
+        return await this.articleService.processArticle(body);
     }
 }
