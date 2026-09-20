@@ -1,7 +1,7 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { ChatOllama } from '@langchain/ollama';
 import { HumanMessage, SystemMessage } from '@langchain/core/messages';
-import { StateGraph, Annotation, MessagesAnnotation, MemorySaver, START, END } from '@langchain/langgraph';
+import { StateGraph, Annotation, START, END } from '@langchain/langgraph';
 
 import { LangChainConfig } from '../config';
 import { ArticleDto } from './dto/langgraph.dto';

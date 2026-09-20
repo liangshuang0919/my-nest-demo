@@ -43,6 +43,8 @@ export default tseslint.config(
             '@typescript-eslint/no-unused-vars': 'off',
             '@typescript-eslint/no-unsafe-call': 'off',
             '@typescript-eslint/no-unsafe-return': 'off',
+            '@typescript-eslint/no-implied-eval': 'off',
+            '@typescript-eslint/require-await': 'off',
         },
     },
 );
