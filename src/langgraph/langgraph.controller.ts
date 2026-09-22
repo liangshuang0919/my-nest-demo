@@ -8,6 +8,7 @@ import { RoutingService } from './routing.service';
 import { SupervisorService } from './supervisor.service';
 import { PipelineService } from './pipeline.service';
 import { CodeReviewService } from './code-review.service';
+import { EmailService } from './email.service';
 import {
     SimpleChatDto,
     MemoryChatDto,
@@ -18,6 +19,8 @@ import {
     SupervisorDto,
     PipelineDto,
     CodeReviewDto,
+    EmailStartDto,
+    EmailModifyDto,
 } from './dto/langgraph.dto';
 
 @Controller('langgraph')
@@ -31,6 +34,7 @@ export class LanggraphController {
         private readonly supervisorService: SupervisorService,
         private readonly pipelineService: PipelineService,
         private readonly codeReviewService: CodeReviewService,
+        private readonly emailService: EmailService,
     ) {}
 
     // 工作流一：简单回答（无记忆）
@@ -101,5 +105,40 @@ export class LanggraphController {
     @HttpCode(200)
     async codeReview(@Body() body: CodeReviewDto) {
         return await this.codeReviewService.codeReview(body);
+    }
+
+    // 工作流十一：人工审查邮件 -- 开始发送
+    @Post('email/start')
+    @HttpCode(200)
+    async emailStart(@Body() body: EmailStartDto) {
+        return await this.emailService.emailStart(body);
+    }
+
+    // 工作流十一：人工审查邮件 -- 审批
+    @Post('email/:threadId/approve')
+    @HttpCode(200)
+    async emailApprove(@Param('threadId') threadId: string) {
+        return await this.emailService.emailApprove(threadId);
+    }
+
+    // 工作流十一：人工审查邮件 -- 拒绝
+    @Post('email/:threadId/reject')
+    @HttpCode(200)
+    async emailReject(@Param('threadId') threadId: string) {
+        return await this.emailService.emailReject(threadId);
+    }
+
+    // 工作流十一：人工审查邮件 -- 审批后需要修改邮件
+    @Post('email/:threadId/modify')
+    @HttpCode(200)
+    async emailModify(@Param('threadId') threadId: string, @Body() body: EmailModifyDto) {
+        return await this.emailService.emailModify(threadId, body);
+    }
+
+    // 工作流十一：人工审查邮件 -- 获取审批状态
+    @Post('email/:threadId/status')
+    @HttpCode(200)
+    async emailStatus(@Param('threadId') threadId: string) {
+        return await this.emailService.emailStatus(threadId);
     }
 }

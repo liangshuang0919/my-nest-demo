@@ -36,3 +36,12 @@ export class CodeReviewDto {
     language: string; // 语言类型
     code: string;
 }
+
+export class EmailStartDto {
+    request: string; // 邮件请求
+    threadId: string; // 会话 id
+}
+
+export class EmailModifyDto {
+    feedback: string; // 修改内容
+}

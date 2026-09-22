@@ -8,6 +8,7 @@ import { ParallelService } from './parallel.service';
 import { SupervisorService } from './supervisor.service';
 import { PipelineService } from './pipeline.service';
 import { CodeReviewService } from './code-review.service';
+import { EmailService } from './email.service';
 
 @Module({
     controllers: [LanggraphController],
@@ -20,6 +21,7 @@ import { CodeReviewService } from './code-review.service';
         SupervisorService,
         PipelineService,
         CodeReviewService,
+        EmailService,
     ],
 })
 export class LanggraphModule {}
