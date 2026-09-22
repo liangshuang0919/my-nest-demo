@@ -23,3 +23,16 @@ export class RoutingDto {
 export class ParallerDto {
     task: string; // 处理的任务
 }
+
+export class SupervisorDto {
+    input: string; // 用户输入
+}
+
+export class PipelineDto {
+    topic: string; // 用户输入
+}
+
+export class CodeReviewDto {
+    language: string; // 语言类型
+    code: string;
+}

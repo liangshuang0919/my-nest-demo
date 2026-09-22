@@ -5,7 +5,20 @@ import { LanggraphService } from './langgraph.service';
 import { ParallelService } from './parallel.service';
 import { ReactAgentService } from './react-agent.service';
 import { RoutingService } from './routing.service';
-import { SimpleChatDto, MemoryChatDto, ArticleDto, ReactChatDto, RoutingDto, ParallerDto } from './dto/langgraph.dto';
+import { SupervisorService } from './supervisor.service';
+import { PipelineService } from './pipeline.service';
+import { CodeReviewService } from './code-review.service';
+import {
+    SimpleChatDto,
+    MemoryChatDto,
+    ArticleDto,
+    ReactChatDto,
+    RoutingDto,
+    ParallerDto,
+    SupervisorDto,
+    PipelineDto,
+    CodeReviewDto,
+} from './dto/langgraph.dto';
 
 @Controller('langgraph')
 export class LanggraphController {
@@ -15,6 +28,9 @@ export class LanggraphController {
         private readonly parallelService: ParallelService,
         private readonly reactAgentService: ReactAgentService,
         private readonly routingService: RoutingService,
+        private readonly supervisorService: SupervisorService,
+        private readonly pipelineService: PipelineService,
+        private readonly codeReviewService: CodeReviewService,
     ) {}
 
     // 工作流一：简单回答（无记忆）
@@ -64,5 +80,26 @@ export class LanggraphController {
     @HttpCode(200)
     async parallel(@Body() body: ParallerDto) {
         return await this.parallelService.parallel(body);
+    }
+
+    // 工作流八：监督模式
+    @Post('supervisor')
+    @HttpCode(200)
+    async supervisor(@Body() body: SupervisorDto) {
+        return await this.supervisorService.supervisor(body);
+    }
+
+    // 工作流九：内容创作流水线
+    @Post('pipeline')
+    @HttpCode(200)
+    async pipeline(@Body() body: PipelineDto) {
+        return await this.pipelineService.pipeline(body);
+    }
+
+    // 工作流十：并行agent代码审查
+    @Post('code-review')
+    @HttpCode(200)
+    async codeReview(@Body() body: CodeReviewDto) {
+        return await this.codeReviewService.codeReview(body);
     }
 }

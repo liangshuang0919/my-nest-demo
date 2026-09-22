@@ -35,7 +35,6 @@ export default tseslint.config(
                 'error',
                 {
                     endOfLine: 'auto',
-                    printWidth: 120,
                 },
             ],
             '@typescript-eslint/no-unsafe-assignment': 'off',
@@ -45,6 +44,9 @@ export default tseslint.config(
             '@typescript-eslint/no-unsafe-return': 'off',
             '@typescript-eslint/no-implied-eval': 'off',
             '@typescript-eslint/require-await': 'off',
+            '@typescript-eslint/no-unused-expressions': 'off',
+            '@typescript-eslint/no-base-to-string': 'off',
+            '@typescript-eslint/restrict-template-expressions': 'off',
         },
     },
 );
